@@ -59,7 +59,6 @@ class AmazonS3Cache(BaseCache):
         # S3BotoStorage wants lower case names
         options_lowercase = dict()
         for name, value in self._options.items():
-            self._options[name.lower()] = value
             options_lowercase[name.lower()] = value
         self._options = options_lowercase
 
