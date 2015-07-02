@@ -57,9 +57,11 @@ class AmazonS3Cache(BaseCache):
         self._options['LOCATION'] = self._LOCATION.strip('/')
 
         # S3BotoStorage wants lower case names
+        options_lowercase = dict()
         for name, value in self._options.items():
-            if value is not None: # skip None values
-                self._options[name.lower()] = value
+            self._options[name.lower()] = value
+            options_lowercase[name.lower()] = value
+        self._options = options_lowercase
 
         self._storage = s3boto.S3BotoStorage(
                                     acl=_DEFAULT_ACL,
