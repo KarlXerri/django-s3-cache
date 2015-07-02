@@ -70,6 +70,6 @@ config = {
 
 if (len(sys.argv) >= 2) and (sys.argv[1] == '--requires'):
     for req in config['install_requires']:
-        print req
+        print(req)
 else:
     setup(**config)
